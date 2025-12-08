@@ -70,12 +70,12 @@ body {
     h2,
     h3 {
         color: var(--text-primary);
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
     }
 
     h1 {
         text-align: center;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
     }
 
     h2 {
@@ -125,53 +125,41 @@ body {
         border-top: 1px solid var(--border-color);
         color: var(--text-secondary);
     }
-    /* --- Balão de Fala (Com Borda Branca e Centralizado) --- */
 
-.speech-bubble-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 25px; /* Aumentei um pouco para dar espaço ao bico */
-}
+    .speech-bubble-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 25px;
+    }
 
-.speech-bubble {
-    position: relative;
-    background-color: var(--bg-secondary);
-    color: var(--text-primary);
-    padding: 1.5rem 2rem;
-    border-radius: 30px;
-    font-weight: bold;
-    font-size: 1.1rem;
-    max-width: 600px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    
-    /* --- Borda e Layout --- */
-    border: 2px solid #ffffff; /* A borda branca ao redor de tudo */
-    min-height: 100px;         /* Mantém o tamanho estável */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    .speech-bubble {
+        position: relative;
+        background-color: var(--bg-secondary);
+        color: var(--text-primary);
+        padding: 1.5rem 2rem;
+        border-radius: 30px;
+        font-weight: bold;
+        font-size: 1.1rem;
+        max-width: 600px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        border: 2px solid #ffffff;
+        min-height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-/* O "Bico" (Feito com um quadrado girado para ter borda) */
-.speech-bubble::after {
-    content: '';
-    position: absolute;
-    
-    /* Posicionamento */
-    bottom: -12px; /* Empurra para fora do balão (ajuste se a borda ficar grossa demais) */
-    left: 50%;     /* Centraliza na metade da largura */
-    
-    /* Forma e Cor */
-    width: 20px;
-    height: 20px;
-    background-color: var(--bg-secondary); /* Mesma cor do fundo do balão para "apagar" a linha de cima */
-    
-    /* As bordas do bico */
-    border-bottom: 2px solid #ffffff; /* Borda branca embaixo */
-    border-right: 2px solid #ffffff;  /* Borda branca na direita */
-    
-    /* A Mágica: Gira 45 graus e corrige o centro */
-    transform: translateX(-50%) rotate(45deg);
-}
+    .speech-bubble::after {
+        content: "";
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        background-color: var(--bg-secondary);
+        border-bottom: 2px solid #ffffff;
+        border-right: 2px solid #ffffff;
+        transform: translateX(-50%) rotate(45deg);
+    }
 }
