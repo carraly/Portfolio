@@ -1,0 +1,127 @@
+:root {
+    --bg-main: #161b22;
+    --bg-secondary: #21262d;
+    --text-primary: #ffffff;
+    --text-secondary: #8b949e;
+    --accent-orange: #fd8c00;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    .container {
+        width: 90%;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px 0;
+    }
+
+    main {
+        flex: 1;
+    }
+
+    header {
+        background-color: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-color);
+        padding: 1rem 0;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        gap: 2rem;
+    }
+
+    nav a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+        color: var(--accent-orange);
+    }
+
+    section {
+        margin-bottom: 3rem;
+        padding: 2rem;
+        background-color: var(--bg-secondary);
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+    }
+
+    h1,
+    h2,
+    h3 {
+        color: var(--text-primary);
+        margin-bottom: 1rem;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    h2 {
+        border-bottom: 2px solid var(--accent-orange);
+        display: inline-block;
+        padding-bottom: 0.5rem;
+    }
+
+    .hero {
+        text-align: center;
+        padding: 4rem 0;
+        background-color: transparent;
+        border: none;
+    }
+
+    .profile-img {
+        width: 150px;
+        height: auto;
+    }
+
+    ul.styled-list li {
+        margin-bottom: 0.5rem;
+        list-style-type: none;
+        position: relative;
+        padding-left: 1.5rem;
+    }
+
+    ul.styled-list li::before {
+        content: "➤";
+        color: var(--accent-orange);
+        position: absolute;
+        left: 0;
+    }
+
+    .content-link {
+        color: var(--accent-orange);
+        text-decoration: none;
+    }
+    .content-link:hover {
+        text-decoration: underline;
+    }
+
+    footer {
+        text-align: center;
+        padding: 1.5rem;
+        background-color: var(--bg-secondary);
+        border-top: 1px solid var(--border-color);
+        color: var(--text-secondary);
+    }
+}

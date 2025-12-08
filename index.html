@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Victor Carraly's Portfolio</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">About Me</a></li>
+                    <li><a href="projects.html">My Projects</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="container">
+            <section class="hero">
+                <h1>Hey! I'm Victor Carraly</h1>
+                <img
+                    src="https://i.postimg.cc/fysqdpB5/Pinguim.png"
+                    alt="Penguin"
+                    class="profile-img"
+                />
+                <p>
+                    Computer Science student passionate about game development.
+                </p>
+                <button
+                    id="btnInterativo"
+                    style="
+                        margin-top: 20px;
+                        padding: 10px 20px;
+                        background-color: var(--accent-orange);
+                        border: none;
+                        color: white;
+                        font-weight: bold;
+                        cursor: pointer;
+                        border-radius: 5px;
+                    "
+                >
+                    Clique para uma curiosidade
+                </button>
+                <p
+                    id="textoCuriosidade"
+                    style="margin-top: 15px; color: var(--accent-orange)"
+                ></p>
+            </section>
+
+            <section id="inspiracao">
+                <h2>What inspires me?</h2>
+                <p>
+                    I am driven by the possibility of creating interactive
+                    worlds and experiences that entertain people. The
+                    combination of art, music, and code in games is my biggest
+                    motivation.
+                </p>
+            </section>
+
+            <section id="contact">
+                <h2>Let's Connect</h2>
+                <p>Feel free to reach out on my social media:</p>
+                <div style="margin-top: 1rem">
+                    <a
+                        href="https://www.linkedin.com/in/victorcarraly"
+                        class="content-link"
+                        >LinkedIn</a
+                    >
+                    |
+                    <a href="https://github.com/vcarraly" class="content-link"
+                        >GitHub</a
+                    >
+                </div>
+            </section>
+        </main>
+        <script src="script.js"></script>
+    </body>
+</html>
