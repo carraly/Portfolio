@@ -18,7 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (button) {
         button.addEventListener("click", () => {
             const randomIndex = Math.floor(Math.random() * funFacts.length);
-            textElement.textContent = funFacts[randomIndex];
+            textElement.classList.add("hidden");
+            setTimeout(() => {
+                textElement.textContent = funFacts[randomIndex];
+                textElement.classList.remove("hidden");
+            }, 400);
         });
     }
 });
