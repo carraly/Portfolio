@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Select the modal and its close button
 const modal = document.getElementById("project-modal");
 const closeBtn = document.querySelector(".close-btn");
+const modalContent = document.querySelector(".modal-content");
 
 // Select all the empty text spots inside the modal
 const modalTitle = document.getElementById("modal-title");
@@ -68,7 +69,10 @@ projectCards.forEach((card) => {
         modalKey.textContent = key;
         modalLink.href = link;
 
-        modal.classList.add("show");
+        setTimeout(() => {
+            modal.classList.add("show");
+            modalContent.scrollTop = 0;     
+        }, 10);
     });
 });
 

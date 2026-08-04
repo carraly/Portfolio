@@ -382,7 +382,6 @@ body {
         width: 45px;
         height: 45px;
         margin-right: 1.2rem;
-        /* This ensures icons that are purely black/dark grey (like Django sometimes) don't get lost in the dark mode */
         filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
     }
 
@@ -413,16 +412,15 @@ body {
         background-color: var(--accent-orange);
         border-radius: 4px;
         /* Adds a sleek loading animation when the page first opens */
-        animation: loadBar 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        animation: loadBar 1.2s cubic-bezier(0.175, 0.885, 0.32, 1) forwards;
     }
+}
 
-    /* Keyframes to make the progress bars 'grow' into place */
-    @keyframes loadBar {
-        from {
-            transform: translateX(-100%);
-        }
-        to {
-            transform: translateX(0);
-        }
+@keyframes loadBar {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
     }
 }
