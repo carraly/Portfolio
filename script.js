@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const button = document.getElementById("btnInterativo");
     const textElement = document.getElementById("textoCuriosidade");
 
-    // Translated fun facts
     const funFacts = [
         "Did you know I was coded with love?",
         "My favorite color is orange, just like my feet!",
@@ -24,5 +23,63 @@ document.addEventListener("DOMContentLoaded", () => {
                 textElement.classList.remove("hidden");
             }, 400);
         });
+    }
+});
+
+// --- PROJECT MODAL LOGIC ---
+
+// Select the modal and its close button
+const modal = document.getElementById("project-modal");
+const closeBtn = document.querySelector(".close-btn");
+
+// Select all the empty text spots inside the modal
+const modalTitle = document.getElementById("modal-title");
+const modalDesc = document.getElementById("modal-desc");
+const modalTech = document.getElementById("modal-tech");
+const modalKey = document.getElementById("modal-key");
+const modalLink = document.getElementById("modal-link");
+
+// Select every project card on the page
+const projectCards = document.querySelectorAll(".project-card");
+
+// Add a click event to each card
+projectCards.forEach((card) => {
+    card.addEventListener("click", () => {
+        // Grab the hidden data from the specific card that was clicked
+        const title = card.getAttribute("data-title");
+        const desc = card.getAttribute("data-description");
+        const tech = card.getAttribute("data-tech");
+        const key = card.getAttribute("data-key");
+        const link = card.getAttribute("data-link");
+
+        modalTitle.textContent = title;
+        modalDesc.innerHTML = desc;
+        if (tech) {
+            const techArray = tech.split(",");
+            let techHTML = '<ul class="styled-list">';
+
+            techArray.forEach((item) => {
+                techHTML += `<li>${item.trim()}</li>`;
+            });
+
+            techHTML += "</ul>";
+            modalTech.innerHTML = techHTML;
+        }
+        modalKey.textContent = key;
+        modalLink.href = link;
+
+        modal.classList.add("show");
+    });
+});
+
+if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+        modal.classList.remove("show");
+    });
+}
+
+window.addEventListener("click", (event) => {
+    if (event.target === modal) {
+        modal.classList.remove("show");
     }
 });

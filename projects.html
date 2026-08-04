@@ -22,151 +22,104 @@
         <main class="container">
             <h1>My Projects</h1>
 
-            <section>
-                <h2>Pong-Champs (Demo)</h2>
-                <article>
-                    <h3>About the Project</h3>
-                    <p>
-                        Developed as a collaborative project for the Imperative
-                        Functional Programming (PIF) course, Pong-Champs is a
-                        dynamic table tennis game. Inspired by the classic Pong,
-                        our team expanded the core mechanics to include free
-                        character movement, trajectory physics, and an energy
-                        system for special abilities and, of course, great
-                        sprites for our main characters and scenario.
-                        <br /><br />
-                        <em
-                            >Note: This C and Raylib build serves as a demo, as
-                            a full version is currently in development using
-                            Godot!</em
-                        >
-                    </p>
-                    <br />
-                    <h3>Technologies Used</h3>
-                    <ul class="styled-list">
-                        <li>C</li>
-                        <li>Raylib</li>
-                        <li>GCC / MinGW & Makefile</li>
-                    </ul>
-                    <br />
-                    <h3>Key Learnings</h3>
-                    <p>
-                        This project was a deep dive into game programming
-                        fundamentals. Working alongside my teammates Arthur
-                        Vitorino and Juan Riquelme, I gained hands-on experience
-                        structuring modular C code, managing game states (Menus,
-                        Gameplay, and Victory conditions), and manipulating
-                        sprite animations.
-                    </p>
-                    <a
-                        href="https://youtu.be/VQTXFafdctM"
-                        class="content-link"
-                        style="display: inline-block; margin-top: 1rem"
-                        target="_blank"
-                        >View Screencast on YouTube ></a
-                    >
-                </article>
-            </section>
+            <div class="project-grid">
+                <div
+                    class="project-card"
+                    data-title="Pong-Champs (Demo)"
+                    data-description="Developed as a collaborative project for the Imperative Functional Programming (PIF) course, Pong-Champs is a dynamic table tennis game.<br>Inspired by the classic Pong, our team expanded the core mechanics to include free character movement, trajectory physics, and an energy system for special abilities.<br><br>Note: This C and Raylib build serves as a demo, as a full version is currently in development using Godot!"
+                    data-tech="C, Raylib, GCC / MinGW & Makefile"
+                    data-key="This project was a deep dive into game programming fundamentals. Working alongside my teammates Arthur Vitorino and Juan Riquelme, I gained hands-on experience structuring modular C code, managing game states (Menus, Gameplay, and Victory conditions), and manipulating sprite animations."
+                    data-link="https://youtu.be/VQTXFafdctM"
+                >
+                    <h2>Pong-Champs (Demo)</h2>
+                    <img
+                        src="pong-thumbnail.png"
+                        alt="Pong-Champs Image"
+                        class="card-img"
+                    />
+                </div>
 
-            <section>
-                <h2>Laço Favela</h2>
-                <article>
-                    <h3>About the Project</h3>
-                    <p>
-                        Developed alongside a large party of developers and
-                        designers, Laço Favela is a full-stack web application
-                        built to support the G10 Favelas. Our overarching quest
-                        was to digitize and streamline the "Presidente de Rua"
-                        initiative, replacing outdated physical forms with a
-                        secure platform to manage donations and track data for
-                        vulnerable families.
-                        <br /><br />
-                        For this campaign, I specialized as a backend engineer,
-                        constructing the core logic and database architecture,
-                        while also stepping into the frontend to make critical
-                        UI adjustments and ensure seamless integration.
-                    </p>
-                    <br />
-                    <h3>Technologies Used</h3>
-                    <ul class="styled-list">
-                        <li>Python 3 & PostgreSQL (Backend)</li>
-                        <li>JavaScript & React (Frontend)</li>
-                        <li>HTML & CSS</li>
-                    </ul>
-                    <br />
-                    <h3>Key Learnings</h3>
-                    <p>
-                        This project was a massive exercise in agile development
-                        and large-scale teamwork. I gained valuable experience
-                        managing complex sprints via Jira across different user
-                        roles (Admin, Presidente de Rua, and Morador). It
-                        solidified my ability to architect a robust backend
-                        capable of handling real-world social impact data while
-                        coordinating continuous deployments via Azure.
-                    </p>
-                    <a
-                        href="https://sites.google.com/cesar.school/laco-favela/"
-                        class="content-link"
-                        style="display: inline-block; margin-top: 1rem"
-                        target="_blank"
-                        >View Project Site ></a
-                    >
-                </article>
-            </section>
+                <div
+                    class="project-card"
+                    data-title="Laço Favela"
+                    data-description="Developed alongside a large party of developers and designers, Laço Favela is a full-stack web application built to support the G10 Favelas.<br>Our overarching quest was to digitize and streamline the 'Presidente de Rua' initiative, replacing outdated physical forms with a secure platform to manage donations and track data for vulnerable families.<br><br>For this campaign, I specialized as a backend engineer, constructing the core logic and database architecture, while also stepping into the frontend to make critical UI adjustments and ensure seamless integration."
+                    data-tech="Python 3 & PostgreSQL, JavaScript & React, HTML & CSS"
+                    data-key="This project was a massive exercise in agile development and large-scale teamwork. I gained valuable experience managing complex sprints via Jira across different user roles (Admin, Presidente de Rua, and Morador). It solidified my ability to architect a robust backend capable of handling real-world social impact data while coordinating continuous deployments via Azure."
+                    data-link="https://sites.google.com/cesar.school/laco-favela/"
+                >
+                    <h2>Laço Favela</h2>
+                    <img
+                        src="laco-logo.png"
+                        alt="Laço Favela's Logo"
+                        class="card-img"
+                    />
+                </div>
 
-            <section>
-                <h2>∄XIT</h2>
-                <article>
-                    <h3>About the Project</h3>
-                    <p>
-                        Developed for the Mathematical Logic for Computing
-                        course, ∄XIT is a liminal horror puzzle game wrapped in
-                        an eerie, analog VHS aesthetic. The game translates
-                        abstract math into tangible gameplay: players navigate
-                        unsettling spaces—like an empty market, subway,
-                        bathroom, and classroom—by reading logical sentences on
-                        scattered papers and manipulating levers to match the
-                        propositions (e.g., lever up = A, lever down = ~A).
-                        <br /><br />
-                        Working within a big team, I acted as one of the two
-                        core programmers, focusing heavily on building out the
-                        interactive logic systems and puzzle mechanics using
-                        Godot.
-                    </p>
-                    <br />
-                    <h3>Technologies Used</h3>
-                    <ul class="styled-list">
-                        <li>Godot Engine</li>
-                        <li>Free-to-use 3D Assets</li>
-                        <li>Propositional Logic Algorithms</li>
-                    </ul>
-                    <br />
-                    <h3>Key Learnings</h3>
-                    <p>
-                        This project was a fantastic exercise in translating
-                        theoretical computer science concepts into engaging,
-                        interactive mechanics. As a co-programmer, I honed my
-                        skills in Godot, managing state changes across multiple
-                        levels (from Lvl 0 to the Classroom). I also ensured the
-                        underlying code correctly evaluated the players' lever
-                        combinations against the required truth tables, all
-                        while helping maintain a tense, time-sensitive
-                        atmosphere where the "tape is running out".
-                    </p>
-                    <a
-                        href="https://github.com/beatrizloyola/exit-game"
-                        class="content-link"
-                        style="display: inline-block; margin-top: 1rem"
-                        target="_blank"
-                        >View Project Repository ></a
-                    >
-                </article>
-            </section>
+                <div
+                    class="project-card"
+                    data-title="∄XIT"
+                    data-description="Developed for the Mathematical Logic for Computing
+                            course, ∄XIT is a liminal horror puzzle game wrapped
+                            in an eerie, analog VHS aesthetic.<br>The game
+                            translates abstract math into tangible gameplay:
+                            players navigate unsettling spaces—like an empty
+                            market, subway, bathroom, and classroom—by reading
+                            logical sentences on scattered papers and
+                            manipulating levers to match the propositions (e.g.,
+                            lever up = A, lever down = ~A).<br><br>Working within a big team, I acted as one of the two
+                            core programmers, focusing heavily on building out
+                            the interactive logic systems and puzzle mechanics
+                            using Godot."
+                    data-tech="Godot Engine, Free-to-use 3D Assets, Propositional Logic Algorithms"
+                    data-key="This project was a fantastic exercise in translating
+                            theoretical computer science concepts into engaging,
+                            interactive mechanics. As a co-programmer, I honed
+                            my skills in Godot, managing state changes across
+                            multiple levels (from Lvl 0 to the Classroom). I
+                            also ensured the underlying code correctly evaluated
+                            the players' lever combinations against the required
+                            truth tables, all while helping maintain a tense,
+                            time-sensitive atmosphere where the 'tape is running
+                            out'."
+                    data-link="https://github.com/beatrizloyola/exit-game"
+                >
+                    <h2>∄XIT</h2>
+                    <img
+                        src="exit-logo.png"
+                        alt="\Exit's Logo"
+                        class="card-img"
+                    />
+                </div>
 
-            <section>
-                <h2>Upcoming Projects</h2>
-                <p>More exciting stuff is coming soon!</p>
-            </section>
+                <div>
+                    <h2>Upcoming Projects</h2>
+                    <p>More exciting stuff is coming soon!</p>
+                </div>
+            </div>
+            <div id="project-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h2 id="modal-title">Project Title</h2>
+
+                    <h3>About the Project</h3>
+                    <p id="modal-desc">Project description goes here.</p>
+
+                    <h3>Technologies Used</h3>
+                    <p id="modal-tech">Tech stack goes here.</p>
+
+                    <h3>Key Learnings</h3>
+                    <p id="modal-key">Key learnings go here.</p>
+
+                    <a
+                        id="modal-link"
+                        href="#"
+                        target="_blank"
+                        class="content-link"
+                        >View Project ></a
+                    >
+                </div>
+            </div>
         </main>
+        <script src="script.js"></script>
     </body>
 </html>
