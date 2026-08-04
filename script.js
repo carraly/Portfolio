@@ -9,6 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
         "I'm ready to code the next big game!",
         "HTML and CSS are like the skeleton and skin of the web.",
         "Don't forget to stay hydrated while coding!",
+        "I recently started building games with Godot and Raylib!",
+        "When I'm not coding, you can probably find me deep into a fantasy tabletop campaign.",
+        "I love building interactive worlds, whether it's through code or game design.",
+        "React and Django are my current go-to tools for full-stack web quests.",
     ];
 
     if (button) {

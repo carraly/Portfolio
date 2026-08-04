@@ -64,6 +64,14 @@ body {
         background-color: var(--bg-secondary);
         border-radius: 8px;
         border: 1px solid var(--border-color);
+        transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
+    }
+    section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(253, 140, 0, 0.1); /* Subtle orange glow */
+        border-color: var(--accent-orange);
     }
 
     h1,
