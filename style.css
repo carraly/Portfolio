@@ -170,6 +170,17 @@ body {
         left: 0;
     }
 
+    #sub_list {
+        margin-left: 1rem;
+        margin-top: 0.3rem;
+        line-height: normal;
+    }
+
+    #sub_list li::before {
+        content: "•";
+        font-size: 1.2rem;
+    }
+
     .content-link {
         color: var(--accent-orange);
         text-decoration: none;
@@ -204,7 +215,7 @@ body {
         text-align: center;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         border: 2px solid #ffffff;
-        min-height: 100px;
+        min-height: 120px;
         display: flex;
         align-items: center;
         justify-content: center;
