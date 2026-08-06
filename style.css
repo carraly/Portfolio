@@ -4,6 +4,8 @@
     --text-primary: #ffffff;
     --text-secondary: #8b949e;
     --accent-orange: #fd8c00;
+    --border-color: #30363d;
+    --bg-primary: #30363d;
 }
 
 /* --- CUSTOM SCROLLBAR --- */
@@ -32,14 +34,12 @@ html {
 
 .modal-content::-webkit-scrollbar-track {
     background: transparent;
-    margin-block: 20px;
 }
 
 .modal-content::-webkit-scrollbar-thumb {
     background-color: var(--accent-orange);
     border-radius: 10px;
-    border: 6px solid transparent;
-    background-clip: content-box;
+    border: 3px solid var(--bg-secondary);
 }
 
 .modal-content::-webkit-scrollbar-thumb:hover {
@@ -111,7 +111,6 @@ body {
     section:hover {
         transform: translateY(-5px);
         box-shadow: 0 8px 15px rgba(253, 139, 0, 0.258);
-        border-color: var(--accent-orange);
     }
 
     button:hover {
@@ -269,7 +268,7 @@ body {
 
     .project-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 8px 15px rgba(253, 140, 0, 0.1);
+        box-shadow: 0 8px 15px rgba(253, 139, 0, 0.258);
         border-color: var(--accent-orange);
     }
 
@@ -315,6 +314,8 @@ body {
         transition:
             transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
             opacity 0.4s ease;
+        scrollbar-width: thin;
+        scrollbar-color: var(--accent-orange) var(--bg-secondary);
     }
 
     .modal.show {
@@ -385,7 +386,6 @@ body {
 
     .skill-badge:hover {
         transform: translateY(-4px);
-        border-color: var(--accent-orange);
         box-shadow: 0 6px 12px rgba(253, 139, 0, 0.15);
     }
 
