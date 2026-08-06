@@ -32,18 +32,53 @@ html {
     background-color: #ff9900;
 }
 
-.modal-content::-webkit-scrollbar-track {
-    background: transparent;
+.modal-content::-webkit-scrollbar {
+    display: none;
 }
 
-.modal-content::-webkit-scrollbar-thumb {
+.custom-scrollbar {
+    position: absolute;
+    top: 15px; /* Keeps it away from the top border */ /* Keeps it away from the bottom border */
+    bottom: 15px;
+    right: 8px; /* Nudges it inward so it never overlaps the orange line */
+    width: 6px;
+    background: transparent;
+    z-index: 10;
+}
+
+.custom-thumb {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    /* Height is calculated dynamically in JS based on text length */
     background-color: var(--accent-orange);
     border-radius: 10px;
-    border: 3px solid var(--bg-secondary);
+    cursor: grab;
+    transition: background-color 0.2s;
 }
 
-.modal-content::-webkit-scrollbar-thumb:hover {
+.custom-thumb:hover,
+.custom-thumb:active {
     background-color: #ff9900;
+}
+
+.custom-thumb:active {
+    cursor: grabbing;
+}
+
+.modal-scroll-wrapper {
+    max-height: 70vh; /* Limits height so scrolling activates */
+    overflow-y: auto;
+    padding-right: 20px; /* Gives the text room so it doesn't overlap your track */
+
+    /* HIDE NATIVE SCROLLBARS */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.modal-scroll-wrapper::-webkit-scrollbar {
+    display: none;
 }
 
 * {
@@ -183,6 +218,7 @@ body {
     .content-link {
         color: var(--accent-orange);
         text-decoration: none;
+        white-space: nowrap;
     }
     .content-link:hover {
         text-decoration: underline;
@@ -307,15 +343,11 @@ body {
         width: 90%;
         max-width: 600px;
         position: relative;
-        max-height: 85vh;
-        overflow-y: auto;
         transform: scale(0.7);
         opacity: 0;
         transition:
             transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
             opacity 0.4s ease;
-        scrollbar-width: thin;
-        scrollbar-color: var(--accent-orange) var(--bg-secondary);
     }
 
     .modal.show {

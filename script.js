@@ -71,7 +71,8 @@ projectCards.forEach((card) => {
 
         setTimeout(() => {
             modal.classList.add("show");
-            modalContent.scrollTop = 0;     
+            scrollWrapper.scrollTop = 0;
+            updateScrollbar();
         }, 10);
     });
 });
@@ -86,4 +87,66 @@ window.addEventListener("click", (event) => {
     if (event.target === modal) {
         modal.classList.remove("show");
     }
+});
+
+// --- CUSTOM SCROLLBAR LOGIC ---
+const customThumb = document.querySelector(".custom-thumb");
+const customTrack = document.querySelector(".custom-scrollbar");
+const scrollWrapper = document.querySelector(".modal-scroll-wrapper");
+
+function updateScrollbar() {
+    // 1. Calculate the percentage the user has scrolled in the wrapper
+    const scrollPercentage =
+        scrollWrapper.scrollTop /
+        (scrollWrapper.scrollHeight - scrollWrapper.clientHeight);
+
+    // 2. Calculate dynamic thumb height
+    const thumbHeight = Math.max(
+        (scrollWrapper.clientHeight / scrollWrapper.scrollHeight) *
+            customTrack.clientHeight,
+        30,
+    );
+    customThumb.style.height = `${thumbHeight}px`;
+
+    // 3. Move the thumb down the track
+    const maxThumbTop = customTrack.clientHeight - thumbHeight;
+    customThumb.style.transform = `translateY(${scrollPercentage * maxThumbTop}px)`;
+
+    // 4. Hide the scrollbar entirely if the text is too short to require scrolling
+    customTrack.style.display =
+        scrollWrapper.scrollHeight > scrollWrapper.clientHeight
+            ? "block"
+            : "none";
+}
+
+// Listen to the new wrapper instead of the main content box
+scrollWrapper.addEventListener("scroll", updateScrollbar);
+
+// --- MAKE THE THUMB DRAGGABLE ---
+let isDragging = false;
+let startY;
+let startScrollTop;
+
+customThumb.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    startY = e.clientY;
+    startScrollTop = scrollWrapper.scrollTop;
+    document.body.style.userSelect = "none";
+});
+
+document.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+
+    const deltaY = e.clientY - startY;
+    const maxScroll = scrollWrapper.scrollHeight - scrollWrapper.clientHeight;
+    const maxThumb =
+        customTrack.clientHeight - parseFloat(customThumb.style.height);
+    const scrollRatio = maxScroll / maxThumb;
+
+    scrollWrapper.scrollTop = startScrollTop + deltaY * scrollRatio;
+});
+
+document.addEventListener("mouseup", () => {
+    isDragging = false;
+    document.body.style.userSelect = "";
 });

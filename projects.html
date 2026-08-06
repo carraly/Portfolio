@@ -29,7 +29,7 @@
                     data-description="Developed as a collaborative project for the Imperative Functional Programming (PIF) course, Pong-Champs is a dynamic table tennis game.<br>Inspired by the classic Pong, our team expanded the core mechanics to include free character movement, trajectory physics, and an energy system for special abilities.<br><br>Note: This C and Raylib build serves as a demo, as a full version is currently in development using Godot!"
                     data-tech="C, Raylib, GCC / MinGW & Makefile"
                     data-key="This project was a deep dive into game programming fundamentals. Working alongside my teammates Arthur Vitorino and Juan Riquelme, I gained hands-on experience structuring modular C code, managing game states (Menus, Gameplay, and Victory conditions), and manipulating sprite animations."
-                    data-link="https://youtu.be/VQTXFafdctM"
+                    data-link="https://github.com/carraly/Pong-Champs_Demo"
                 >
                     <h2>Pong-Champs (Demo)</h2>
                     <img
@@ -97,7 +97,7 @@
                     data-description="Serving as our very first campaign venturing into Django and live deployments, RevLabs is a web-based vehicle configuration and lap time simulator.<br>Players can select a base vehicle, choose a famous racing circuit, and customize their ride with performance parts like turbos and spoilers to simulate estimated track times.<br><br>Developed alongside a full party of engineers, we managed the entire software lifecycle from Lo-Fi Figma prototypes to a live production environment."
                     data-tech="Python & Django, HTML/CSS/JavaScript, Selenium, GitHub Actions, Render"
                     data-key="This quest was a major milestone in backend web development, marking our first successful live deployment using Render. It was highly focused on quality assurance and workflow automation, teaching us how to configure continuous integration and deployment (CI/CD) pipelines via GitHub Actions, write automated End-to-End (E2E) tests with Selenium, and manage our party's agile sprints through Jira."
-                    data-link="https://revlabs.onrender.com/"
+                    data-link="https://github.com/ArthurVFT/RevLabs"
                 >
                     <h2>RevLabs</h2>
                     <img
@@ -163,27 +163,37 @@
             <div id="project-modal" class="modal">
                 <div class="modal-content">
                     <span class="close-btn">&times;</span>
-                    <h2 id="modal-title">Project Title</h2>
 
-                    <h3>About the Project</h3>
-                    <p id="modal-desc">Project description goes here.</p>
+                    <div class="custom-scrollbar">
+                        <div class="custom-thumb"></div>
+                    </div>
 
-                    <h3>Technologies Used</h3>
-                    <p id="modal-tech">Tech stack goes here.</p>
+                    <div class="modal-scroll-wrapper">
+                        <h2 id="modal-title">Project Title</h2>
 
-                    <h3>Key Learnings</h3>
-                    <p id="modal-key">Key learnings go here.</p>
+                        <h3>About the Project</h3>
+                        <p id="modal-desc">Project description goes here.</p>
 
-                    <a
-                        id="modal-link"
-                        href="#"
-                        target="_blank"
-                        class="content-link"
-                        >View Project ></a
-                    >
+                        <h3>Technologies Used</h3>
+                        <p id="modal-tech">Tech stack goes here.</p>
+
+                        <h3>Key Learnings</h3>
+                        <p id="modal-key">Key learnings go here.</p>
+
+                        <a
+                            id="modal-link"
+                            href="#"
+                            target="_blank"
+                            class="content-link"
+                            >View Project ></a
+                        >
+                    </div>
                 </div>
             </div>
         </main>
+        <footer>
+            <p>© 2026 Victor Carraly | Level 20 Developer</p>
+        </footer>
         <script src="script.js"></script>
     </body>
 </html>
