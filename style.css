@@ -39,9 +39,10 @@ html {
 
 .custom-scrollbar {
     position: absolute;
-    top: 15px;
+    top: 60px;
     bottom: 15px;
     right: 8px;
+    width: 6px;
     background: transparent;
     z-index: 10;
 }
