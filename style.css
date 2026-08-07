@@ -6,6 +6,7 @@
     --accent-orange: #fd8c00;
     --border-color: #30363d;
     --bg-primary: #30363d;
+    --glow-shadow: 0 8px 15px rgba(253, 139, 0, 0.258);
 }
 
 /* --- CUSTOM SCROLLBAR --- */
@@ -38,10 +39,9 @@ html {
 
 .custom-scrollbar {
     position: absolute;
-    top: 15px; /* Keeps it away from the top border */ /* Keeps it away from the bottom border */
+    top: 15px;
     bottom: 15px;
-    right: 8px; /* Nudges it inward so it never overlaps the orange line */
-    width: 6px;
+    right: 8px;
     background: transparent;
     z-index: 10;
 }
@@ -51,7 +51,6 @@ html {
     top: 0;
     right: 0;
     width: 100%;
-    /* Height is calculated dynamically in JS based on text length */
     background-color: var(--accent-orange);
     border-radius: 10px;
     cursor: grab;
@@ -68,9 +67,9 @@ html {
 }
 
 .modal-scroll-wrapper {
-    max-height: 70vh; /* Limits height so scrolling activates */
+    max-height: 70vh;
     overflow-y: auto;
-    padding-right: 20px; /* Gives the text room so it doesn't overlap your track */
+    padding-right: 20px;
 
     /* HIDE NATIVE SCROLLBARS */
     scrollbar-width: none;
@@ -95,368 +94,366 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+.container {
+    justify-items: center;
+    width: 80%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
 
-    .container {
-        justify-items: center;
-        width: 80%;
-        max-width: 1300px;
-        margin: 0 auto;
-        padding: 20px 0;
-    }
+main {
+    flex: 1;
+}
 
-    main {
-        flex: 1;
-    }
+header {
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+}
 
-    header {
-        background-color: var(--bg-secondary);
-        border-bottom: 1px solid var(--border-color);
-        padding: 1rem 0;
-    }
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 2rem;
+}
 
-    nav ul {
-        display: flex;
-        justify-content: center;
-        list-style: none;
-        gap: 2rem;
-    }
+nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
 
-    nav a {
-        color: var(--text-secondary);
-        text-decoration: none;
-        font-weight: bold;
-        transition: color 0.3s;
-    }
+nav a:hover,
+nav a.active {
+    color: var(--accent-orange);
+}
 
-    nav a:hover,
-    nav a.active {
-        color: var(--accent-orange);
-    }
+section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background-color: var(--bg-secondary);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--glow-shadow);
+}
 
-    section {
-        margin-bottom: 3rem;
-        padding: 2rem;
-        background-color: var(--bg-secondary);
-        border-radius: 8px;
-        border: 1px solid var(--border-color);
-        transition:
-            transform 0.3s ease,
-            box-shadow 0.3s ease;
-    }
-    section:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 15px rgba(253, 139, 0, 0.258);
-    }
+button:hover,
+button:active,
+button:focus {
+    box-shadow: var(--glow-shadow);
+    border-color: var(--accent-orange);
+}
 
-    button:hover {
-        transform: scale(1.05);
-        box-shadow: 0 8px 15px rgba(253, 139, 0, 0.258);
-        border-color: var(--accent-orange);
-    }
+button:hover,
+button:focus {
+    transform: scale(1.05);
+}
 
-    button:active {
-        transform: scale(0.95);
-        box-shadow: 0 8px 15px rgba(253, 139, 0, 0.258);
-        border-color: var(--accent-orange);
-    }
+button:active,
+button.pressed {
+    transform: scale(0.95);
+}
 
-    h1,
-    h2,
-    h3 {
-        color: var(--text-primary);
-        margin-bottom: 0.5rem;
-    }
+h1,
+h2,
+h3 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
 
-    h1 {
-        text-align: center;
-        margin-bottom: 1rem;
-    }
+h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
 
-    h2 {
-        border-bottom: 2px solid var(--accent-orange);
-        display: inline-block;
-        padding-bottom: 0.5rem;
-    }
+h2 {
+    border-bottom: 2px solid var(--accent-orange);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
 
-    .interaction {
-        text-align: center;
-        padding: 4rem 0;
-        background-color: transparent;
-        border: none;
-    }
+.interaction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem 0;
+    background-color: transparent;
+    border: none;
+}
 
-    .profile-img {
-        width: 150px;
-        height: auto;
-    }
+ul.styled-list li {
+    margin-bottom: 0.5rem;
+    list-style-type: none;
+    position: relative;
+    padding-left: 1.5rem;
+}
 
-    ul.styled-list li {
-        margin-bottom: 0.5rem;
-        list-style-type: none;
-        position: relative;
-        padding-left: 1.5rem;
-    }
+ul.styled-list li::before {
+    content: "➤";
+    color: var(--accent-orange);
+    position: absolute;
+    left: 0;
+}
 
-    ul.styled-list li::before {
-        content: "➤";
-        color: var(--accent-orange);
-        position: absolute;
-        left: 0;
-    }
+#sub_list {
+    margin-left: 1rem;
+    margin-top: 0.3rem;
+    line-height: normal;
+}
 
-    #sub_list {
-        margin-left: 1rem;
-        margin-top: 0.3rem;
-        line-height: normal;
-    }
+#sub_list li::before {
+    content: "•";
+    font-size: 1.2rem;
+}
 
-    #sub_list li::before {
-        content: "•";
-        font-size: 1.2rem;
-    }
+.content-link {
+    color: var(--accent-orange);
+    text-decoration: none;
+    white-space: nowrap;
+}
+.content-link:hover {
+    text-decoration: underline;
+}
 
-    .content-link {
-        color: var(--accent-orange);
-        text-decoration: none;
-        white-space: nowrap;
-    }
-    .content-link:hover {
-        text-decoration: underline;
-    }
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
 
-    footer {
-        text-align: center;
-        padding: 1.5rem;
-        background-color: var(--bg-secondary);
-        border-top: 1px solid var(--border-color);
-        color: var(--text-secondary);
-    }
+.speech-bubble-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
 
-    .speech-bubble-container {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 25px;
-    }
+.speech-bubble {
+    position: relative;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    padding: 1.5rem 2rem;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border: 2px solid var(--text-primary);
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-    .speech-bubble {
-        position: relative;
-        background-color: var(--bg-secondary);
-        color: var(--text-primary);
-        padding: 1.5rem 2rem;
-        border-radius: 30px;
-        font-weight: bold;
-        font-size: 1.1rem;
-        max-width: 600px;
-        text-align: center;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        border: 2px solid #ffffff;
-        min-height: 120px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+.speech-bubble:after {
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: var(--bg-secondary);
+    border-bottom: 2px solid var(--text-primary);
+    border-right: 2px solid var(--text-primary);
+    transform: translateX(-50%) rotate(45deg);
+}
 
-    .speech-bubble:after {
-        content: "";
-        position: absolute;
-        bottom: -12px;
-        left: 50%;
-        width: 20px;
-        height: 20px;
-        background-color: var(--bg-secondary);
-        border-bottom: 2px solid #ffffff;
-        border-right: 2px solid #ffffff;
-        transform: translateX(-50%) rotate(45deg);
-    }
+#fun-fact-text {
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out;
+}
 
-    #textoCuriosidade {
-        opacity: 1;
-        transition: opacity 0.4s ease-in-out;
-    }
+#fun-fact-text.hidden {
+    opacity: 0;
+}
 
-    #textoCuriosidade.hidden {
-        opacity: 0;
-    }
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
 
-    .project-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-        gap: 2rem;
-        margin-top: 2rem;
-    }
+.project-card {
+    background-color: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    cursor: pointer;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+}
 
-    .project-card {
-        background-color: var(--bg-secondary);
-        padding: 1.5rem;
-        border-radius: 8px;
-        border: 1px solid #30363d;
-        text-align: center;
-        cursor: pointer;
-        transition:
-            transform 0.3s ease,
-            box-shadow 0.3s ease;
-        display: flex;
-        flex-direction: column; /* Forces items to stack vertically */
-        align-items: center; /* Centers items horizontally */
-        justify-content: flex-start; /* Pushes content to the top */
-        height: 100%;
-    }
+.project-card:hover,
+.project-card:focus {
+    transform: translateY(-5px);
+    box-shadow: var(--glow-shadow);
+    border-color: var(--accent-orange);
+    outline: none;
+}
 
-    .project-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 15px rgba(253, 139, 0, 0.258);
-        border-color: var(--accent-orange);
-    }
+.card-img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
 
-    .card-img {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        margin-top: 1rem;
-    }
+.modal {
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
 
-    .modal {
-        display: flex;
-        opacity: 0;
-        visibility: hidden;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.8);
-        justify-content: center;
-        align-items: center;
-        transition:
-            opacity 0.3s ease,
-            visibility 0.3s ease;
-    }
+.modal-content {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--accent-orange);
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    transform: scale(0.7);
+    opacity: 0;
+    transition:
+        transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        opacity 0.4s ease;
+}
 
-    .modal-content {
-        background-color: var(--bg-secondary);
-        color: var(--text-primary);
-        padding: 2.5rem;
-        border-radius: 12px;
-        border: 1px solid var(--accent-orange);
-        width: 90%;
-        max-width: 600px;
-        position: relative;
-        transform: scale(0.7);
-        opacity: 0;
-        transition:
-            transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-            opacity 0.4s ease;
-    }
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+}
 
-    .modal.show {
-        opacity: 1;
-        visibility: visible;
-    }
+.modal.show .modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
 
-    .modal.show .modal-content {
-        transform: scale(1);
-        opacity: 1;
-    }
+.modal-content h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
 
-    .modal-content h3 {
-        margin-top: 1.5rem;
-        margin-bottom: 0.5rem;
-        color: var(--text-secondary);
-    }
+.modal-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
 
-    .modal-content p {
-        margin-bottom: 1.5rem;
-        line-height: 1.7;
-    }
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: var(--text-secondary);
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
 
-    .close-btn {
-        position: absolute;
-        top: 15px;
-        right: 20px;
-        color: var(--text-secondary);
-        font-size: 28px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: color 0.2s;
-    }
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--accent-orange);
+    outline: none;
+}
 
-    .close-btn:hover {
-        color: var(--accent-orange);
-    }
+/* --- SKILLS INVENTORY --- */
 
-    /* --- CHARACTER SHEET / SKILLS INVENTORY --- */
+.character-sheet {
+    margin-bottom: 3rem;
+    width: 100%;
+}
 
-    .character-sheet {
-        /* Builds on your existing section styles but ensures the layout is tight */
-        margin-bottom: 3rem;
-        width: 100%;
-    }
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
 
-    .skills-grid {
-        display: grid;
-        /* Auto-sizes the badges, dropping to a new row when space runs out */
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 1.5rem;
-    }
+.skill-badge {
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-main);
+    padding: 1.2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
 
-    .skill-badge {
-        display: flex;
-        align-items: center;
-        background-color: var(
-            --bg-main
-        ); /* Darker contrast against the section background */
-        padding: 1.2rem;
-        border-radius: 8px;
-        border: 1px solid var(--border-color); /* Uses your existing border color */
-        transition:
-            transform 0.3s ease,
-            border-color 0.3s ease,
-            box-shadow 0.3s ease;
-    }
+.skill-badge:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(253, 139, 0, 0.15);
+}
 
-    .skill-badge:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 6px 12px rgba(253, 139, 0, 0.15);
-    }
+.skill-icon {
+    width: 45px;
+    height: 45px;
+    margin-right: 1.2rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
 
-    .skill-icon {
-        width: 45px;
-        height: 45px;
-        margin-right: 1.2rem;
-        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
-    }
+.skill-info {
+    flex: 1;
+}
 
-    .skill-info {
-        flex: 1; /* Tells the text/progress bar to take up the remaining space */
-    }
+.skill-name {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+}
 
-    .skill-name {
-        display: block;
-        font-weight: bold;
-        margin-bottom: 0.5rem;
-        color: var(--text-primary);
-        font-size: 1.1rem;
-    }
+.progress-track {
+    width: 100%;
+    height: 8px;
+    background-color: var(--bg-primary);
+    border-radius: 4px;
+    overflow: hidden;
+}
 
-    /* The dark background of the progress bar */
-    .progress-track {
-        width: 100%;
-        height: 8px;
-        background-color: #30363d;
-        border-radius: 4px;
-        overflow: hidden;
-    }
-
-    /* The orange fill inside the progress bar */
-    .progress-fill {
-        height: 100%;
-        background-color: var(--accent-orange);
-        border-radius: 4px;
-        /* Adds a sleek loading animation when the page first opens */
-        animation: loadBar 1.2s cubic-bezier(0.175, 0.885, 0.32, 1) forwards;
-    }
+.progress-fill {
+    height: 100%;
+    background-color: var(--accent-orange);
+    border-radius: 4px;
+    animation: loadBar 1.2s cubic-bezier(0.175, 0.885, 0.32, 1) forwards;
 }
 
 @keyframes loadBar {
@@ -466,4 +463,80 @@ body {
     to {
         transform: translateX(0);
     }
+}
+
+/* --- INDEX PAGE UTILITIES --- */
+.hero-section {
+    text-align: center;
+    border-top: 4px solid var(--accent-orange);
+    margin-bottom: 0;
+}
+
+.hero-section h2 {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.hero-section p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+.profile-img {
+    width: 150px;
+    height: auto;
+    margin: 25px 0;
+}
+
+/* Interactive Button */
+.action-btn {
+    padding: 10px 20px;
+    background-color: var(--accent-orange);
+    border: none;
+    color: var(--text-primary);
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.2s;
+}
+
+.grid-card {
+    margin-bottom: 0;
+    height: 100%;
+}
+
+/* Profiles Section */
+.profiles-title {
+    margin-top: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.profiles-desc {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.profiles-links {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-weight: bold;
+}
+
+/* --- UTILITY CLASSES --- */
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.section-subtitle {
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
 }

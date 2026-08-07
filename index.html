@@ -18,26 +18,11 @@
         </header>
 
         <main class="container">
-            <h1 style="margin-bottom: 2rem">Hello! I'm Victor Carraly</h1>
+            <h1 class="mb-2">Hello! I'm Victor Carraly</h1>
 
-            <section
-                class="character-sheet"
-                style="
-                    text-align: center;
-                    border-top: 4px solid var(--accent-orange);
-                    margin-bottom: 0;
-                "
-            >
-                <h2 style="border-bottom: none; margin-bottom: 0">
-                    Level 20 Developer
-                </h2>
-                <p
-                    style="
-                        color: var(--text-secondary);
-                        font-size: 1.1rem;
-                        margin-top: 0.5rem;
-                    "
-                >
+            <section class="character-sheet hero-section">
+                <h2>Level 20 Developer</h2>
+                <p>
                     Computer Science Student at CESAR School | Full-Stack & Game
                     Engineer
                 </p>
@@ -46,59 +31,36 @@
             <div class="interaction">
                 <div class="speech-bubble-container">
                     <div class="speech-bubble">
-                        <p id="textoCuriosidade">
+                        <p id="fun-fact-text" aria-live="polite">
                             Currently studying computer science and learning how
                             fun it is to make games!
                         </p>
                     </div>
                 </div>
-                <br />
-                <img
-                    src="https://i.postimg.cc/fysqdpB5/Pinguim.png"
-                    alt="Penguin"
-                    class="profile-img"
-                />
-                <br />
-                <button
-                    id="btnInterativo"
-                    style="
-                        margin-top: 20px;
-                        padding: 10px 20px;
-                        background-color: var(--accent-orange);
-                        border: none;
-                        color: white;
-                        font-weight: bold;
-                        cursor: pointer;
-                        border-radius: 5px;
-                        transition: transform 0.2s;
-                    "
-                >
+
+                <img src="imgs/penguin.png" alt="Penguin" class="profile-img" />
+
+                <button id="interactive-btn" class="action-btn">
                     Click to make me talk!
                 </button>
             </div>
 
             <div class="skills-grid">
-                <section
-                    class="character-sheet"
-                    style="margin-bottom: 0; height: 100%"
-                >
+                <section class="character-sheet grid-card">
                     <h2>What inspires me?</h2>
-                    <p style="margin-top: 1rem">
+                    <p class="mt-1">
                         I am driven by the possibility of creating interactive
                         worlds and experiences that entertain people.
                     </p>
-                    <p style="margin-top: 1rem">
+                    <p class="mt-1">
                         The combination of art, music, and code in games is my
                         biggest motivation.
                     </p>
                 </section>
 
-                <section
-                    class="character-sheet"
-                    style="margin-bottom: 0; height: 100%"
-                >
+                <section class="character-sheet grid-card">
                     <h2>Current Status:</h2>
-                    <ul class="styled-list" style="margin-top: 1rem">
+                    <ul class="styled-list mt-1">
                         <li>
                             <strong>Studying:</strong> 3° semester of CS at
                             CESAR School
@@ -111,46 +73,31 @@
                         </li>
                     </ul>
 
-                    <h3
-                        style="
-                            margin-top: 2rem;
-                            border-bottom: 1px solid #30363d;
-                            padding-bottom: 0.5rem;
-                        "
-                    >
-                        Profiles
-                    </h3>
-                    <p
-                        style="
-                            color: var(--text-secondary);
-                            font-size: 0.9rem;
-                            margin-top: 0.5rem;
-                        "
-                    >
+                    <h3 class="profiles-title">Profiles</h3>
+
+                    <p class="profiles-desc">
                         Looking for a party member? Reach out!
                     </p>
-                    <div
-                        style="
-                            margin-top: 1rem;
-                            display: flex;
-                            flex-wrap: wrap;
-                            gap: 15px;
-                            font-weight: bold;
-                        "
-                    >
+
+                    <div class="profiles-links">
                         <a
                             href="https://www.linkedin.com/in/victorcarraly"
                             class="content-link"
-                            >➤ LinkedIn</a
                         >
+                            <span aria-hidden="true">➤</span> LinkedIn
+                        </a>
                         <a
                             href="https://github.com/carraly"
                             class="content-link"
-                            >➤ GitHub</a
                         >
-                        <a href="mailto:vcarraly@gmail.com" class="content-link"
-                            >➤ vcarraly@gmail.com</a
+                            <span aria-hidden="true">➤</span> GitHub
+                        </a>
+                        <a
+                            href="mailto:vcarraly@gmail.com"
+                            class="content-link"
                         >
+                            <span aria-hidden="true">➤</span> vcarraly@gmail.com
+                        </a>
                     </div>
                 </section>
             </div>

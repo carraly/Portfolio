@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const button = document.getElementById("btnInterativo");
-    const textElement = document.getElementById("textoCuriosidade");
+    // --- FUN FACT LOGIC ---
+    const button = document.getElementById("interactive-btn");
+    const textElement = document.getElementById("fun-fact-text");
 
     const funFacts = [
         "Did you know I was coded with love?",
@@ -23,130 +24,205 @@ document.addEventListener("DOMContentLoaded", () => {
                 textElement.classList.remove("hidden");
             }, 400);
         });
+
+        button.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+                button.classList.add("pressed");
+            }
+        });
+
+        button.addEventListener("keyup", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+                button.classList.remove("pressed");
+            }
+        });
     }
-});
 
-// --- PROJECT MODAL LOGIC ---
+    // --- PROJECT MODAL LOGIC ---
+    const modal = document.getElementById("project-modal");
+    const closeBtn = document.querySelector(".close-btn");
+    const modalContent = document.querySelector(".modal-content");
 
-// Select the modal and its close button
-const modal = document.getElementById("project-modal");
-const closeBtn = document.querySelector(".close-btn");
-const modalContent = document.querySelector(".modal-content");
+    const modalTitle = document.getElementById("modal-title");
+    const modalDesc = document.getElementById("modal-desc");
+    const modalTech = document.getElementById("modal-tech");
+    const modalKey = document.getElementById("modal-key");
+    const modalLink = document.getElementById("modal-link");
 
-// Select all the empty text spots inside the modal
-const modalTitle = document.getElementById("modal-title");
-const modalDesc = document.getElementById("modal-desc");
-const modalTech = document.getElementById("modal-tech");
-const modalKey = document.getElementById("modal-key");
-const modalLink = document.getElementById("modal-link");
+    const projectCards = document.querySelectorAll(".project-card");
 
-// Select every project card on the page
-const projectCards = document.querySelectorAll(".project-card");
+    projectCards.forEach((card) => {
+        card.addEventListener("click", () => {
+            const title = card.getAttribute("data-title");
+            const desc = card.getAttribute("data-description");
+            const tech = card.getAttribute("data-tech");
+            const key = card.getAttribute("data-key");
+            const link = card.getAttribute("data-link");
 
-// Add a click event to each card
-projectCards.forEach((card) => {
-    card.addEventListener("click", () => {
-        // Grab the hidden data from the specific card that was clicked
-        const title = card.getAttribute("data-title");
-        const desc = card.getAttribute("data-description");
-        const tech = card.getAttribute("data-tech");
-        const key = card.getAttribute("data-key");
-        const link = card.getAttribute("data-link");
+            modalTitle.textContent = title;
+            modalKey.textContent = key;
+            modalLink.href = link;
 
-        modalTitle.textContent = title;
-        modalDesc.innerHTML = desc;
-        if (tech) {
-            const techArray = tech.split(",");
-            let techHTML = '<ul class="styled-list">';
+            modalDesc.textContent = "";
+            if (desc) {
+                const descParts = desc.split(/<br\s*\/?>/i);
+                descParts.forEach((part, index) => {
+                    modalDesc.appendChild(document.createTextNode(part));
+                    if (index < descParts.length - 1) {
+                        modalDesc.appendChild(document.createElement("br"));
+                    }
+                });
+            }
 
-            techArray.forEach((item) => {
-                techHTML += `<li>${item.trim()}</li>`;
-            });
+            modalTech.textContent = "";
+            if (tech) {
+                const techArray = tech.split(",");
+                const ul = document.createElement("ul");
+                ul.classList.add("styled-list");
 
-            techHTML += "</ul>";
-            modalTech.innerHTML = techHTML;
+                techArray.forEach((item) => {
+                    const li = document.createElement("li");
+                    li.textContent = item.trim();
+                    ul.appendChild(li);
+                });
+
+                modalTech.appendChild(ul);
+            }
+
+            setTimeout(() => {
+                modal.classList.add("show");
+                scrollWrapper.scrollTop = 0;
+                updateScrollbar();
+
+                setTimeout(() => {
+                    if (closeBtn) closeBtn.focus();
+                }, 50);
+            }, 10);
+        });
+
+        card.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                card.click();
+            }
+        });
+    });
+
+    if (closeBtn) {
+        closeBtn.addEventListener("click", () => {
+            modal.classList.remove("show");
+        });
+
+        closeBtn.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                modal.classList.remove("show");
+            }
+        });
+    }
+
+    if (modal) {
+        window.addEventListener("click", (event) => {
+            if (event.target === modal) {
+                modal.classList.remove("show");
+            }
+        });
+    }
+
+    document.addEventListener("keydown", (event) => {
+        if (
+            event.key === "Escape" &&
+            modal &&
+            modal.classList.contains("show")
+        ) {
+            modal.classList.remove("show");
         }
-        modalKey.textContent = key;
-        modalLink.href = link;
-
-        setTimeout(() => {
-            modal.classList.add("show");
-            scrollWrapper.scrollTop = 0;
-            updateScrollbar();
-        }, 10);
     });
-});
 
-if (closeBtn) {
-    closeBtn.addEventListener("click", () => {
-        modal.classList.remove("show");
-    });
-}
+    if (modal) {
+        modal.addEventListener("keydown", (event) => {
+            if (event.key === "Tab") {
+                const firstElement = closeBtn;
+                const lastElement = modalLink;
 
-window.addEventListener("click", (event) => {
-    if (event.target === modal) {
-        modal.classList.remove("show");
+                if (event.shiftKey) {
+                    if (document.activeElement === firstElement) {
+                        event.preventDefault();
+                        lastElement.focus();
+                    }
+                } else {
+                    if (document.activeElement === lastElement) {
+                        event.preventDefault();
+                        firstElement.focus();
+                    }
+                }
+            }
+        });
     }
-});
 
-// --- CUSTOM SCROLLBAR LOGIC ---
-const customThumb = document.querySelector(".custom-thumb");
-const customTrack = document.querySelector(".custom-scrollbar");
-const scrollWrapper = document.querySelector(".modal-scroll-wrapper");
+    // --- CUSTOM SCROLLBAR LOGIC ---
+    const customThumb = document.querySelector(".custom-thumb");
+    const customTrack = document.querySelector(".custom-scrollbar");
+    const scrollWrapper = document.querySelector(".modal-scroll-wrapper");
 
-function updateScrollbar() {
-    // 1. Calculate the percentage the user has scrolled in the wrapper
-    const scrollPercentage =
-        scrollWrapper.scrollTop /
-        (scrollWrapper.scrollHeight - scrollWrapper.clientHeight);
+    function updateScrollbar() {
+        if (scrollWrapper && customThumb && customTrack) {
+            const scrollPercentage =
+                scrollWrapper.scrollTop /
+                (scrollWrapper.scrollHeight - scrollWrapper.clientHeight);
 
-    // 2. Calculate dynamic thumb height
-    const thumbHeight = Math.max(
-        (scrollWrapper.clientHeight / scrollWrapper.scrollHeight) *
-            customTrack.clientHeight,
-        30,
-    );
-    customThumb.style.height = `${thumbHeight}px`;
+            const thumbHeight = Math.max(
+                (scrollWrapper.clientHeight / scrollWrapper.scrollHeight) *
+                    customTrack.clientHeight,
+                30,
+            );
+            customThumb.style.height = `${thumbHeight}px`;
 
-    // 3. Move the thumb down the track
-    const maxThumbTop = customTrack.clientHeight - thumbHeight;
-    customThumb.style.transform = `translateY(${scrollPercentage * maxThumbTop}px)`;
+            const maxThumbTop = customTrack.clientHeight - thumbHeight;
+            customThumb.style.transform = `translateY(${scrollPercentage * maxThumbTop}px)`;
 
-    // 4. Hide the scrollbar entirely if the text is too short to require scrolling
-    customTrack.style.display =
-        scrollWrapper.scrollHeight > scrollWrapper.clientHeight
-            ? "block"
-            : "none";
-}
+            customTrack.style.display =
+                scrollWrapper.scrollHeight > scrollWrapper.clientHeight
+                    ? "block"
+                    : "none";
+        }
+    }
 
-// Listen to the new wrapper instead of the main content box
-scrollWrapper.addEventListener("scroll", updateScrollbar);
+    if (scrollWrapper) {
+        scrollWrapper.addEventListener("scroll", updateScrollbar);
+    }
 
-// --- MAKE THE THUMB DRAGGABLE ---
-let isDragging = false;
-let startY;
-let startScrollTop;
+    let isDragging = false;
+    let startY;
+    let startScrollTop;
 
-customThumb.addEventListener("mousedown", (e) => {
-    isDragging = true;
-    startY = e.clientY;
-    startScrollTop = scrollWrapper.scrollTop;
-    document.body.style.userSelect = "none";
-});
+    if (customThumb) {
+        customThumb.addEventListener("mousedown", (e) => {
+            isDragging = true;
+            startY = e.clientY;
+            if (scrollWrapper) startScrollTop = scrollWrapper.scrollTop;
+            document.body.style.userSelect = "none";
+        });
+    }
 
-document.addEventListener("mousemove", (e) => {
-    if (!isDragging) return;
+    document.addEventListener("mousemove", (e) => {
+        if (!isDragging || !scrollWrapper || !customTrack || !customThumb)
+            return;
 
-    const deltaY = e.clientY - startY;
-    const maxScroll = scrollWrapper.scrollHeight - scrollWrapper.clientHeight;
-    const maxThumb =
-        customTrack.clientHeight - parseFloat(customThumb.style.height);
-    const scrollRatio = maxScroll / maxThumb;
+        const deltaY = e.clientY - startY;
+        const maxScroll =
+            scrollWrapper.scrollHeight - scrollWrapper.clientHeight;
+        const maxThumb =
+            customTrack.clientHeight - parseFloat(customThumb.style.height);
 
-    scrollWrapper.scrollTop = startScrollTop + deltaY * scrollRatio;
-});
+        if (maxThumb > 0) {
+            const scrollRatio = maxScroll / maxThumb;
+            scrollWrapper.scrollTop = startScrollTop + deltaY * scrollRatio;
+        }
+    });
 
-document.addEventListener("mouseup", () => {
-    isDragging = false;
-    document.body.style.userSelect = "";
+    document.addEventListener("mouseup", () => {
+        isDragging = false;
+        document.body.style.userSelect = "";
+    });
 });

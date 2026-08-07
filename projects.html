@@ -25,6 +25,8 @@
             <div class="project-grid">
                 <div
                     class="project-card"
+                    tabindex="0"
+                    role="button"
                     data-title="Pong-Champs (Demo)"
                     data-description="Developed as a collaborative project for the Imperative Functional Programming (PIF) course, Pong-Champs is a dynamic table tennis game.<br>Inspired by the classic Pong, our team expanded the core mechanics to include free character movement, trajectory physics, and an energy system for special abilities.<br><br>Note: This C and Raylib build serves as a demo, as a full version is currently in development using Godot!"
                     data-tech="C, Raylib, GCC / MinGW & Makefile"
@@ -41,6 +43,8 @@
 
                 <div
                     class="project-card"
+                    tabindex="0"
+                    role="button"
                     data-title="Laço Favela"
                     data-description="Developed alongside a large party of developers and designers, Laço Favela is a full-stack web application built to support the G10 Favelas.<br>Our overarching quest was to digitize and streamline the 'Presidente de Rua' initiative, replacing outdated physical forms with a secure platform to manage donations and track data for vulnerable families.<br><br>For this campaign, I specialized as a backend engineer, constructing the core logic and database architecture, while also stepping into the frontend to make critical UI adjustments and ensure seamless integration."
                     data-tech="Python 3 & PostgreSQL, JavaScript & React, HTML & CSS"
@@ -57,6 +61,8 @@
 
                 <div
                     class="project-card"
+                    tabindex="0"
+                    role="button"
                     data-title="∄XIT"
                     data-description="Developed for the Mathematical Logic for Computing
                             course, ∄XIT is a liminal horror puzzle game wrapped
@@ -93,6 +99,8 @@
 
                 <div
                     class="project-card"
+                    tabindex="0"
+                    role="button"
                     data-title="RevLabs"
                     data-description="Serving as our very first campaign venturing into Django and live deployments, RevLabs is a web-based vehicle configuration and lap time simulator.<br>Players can select a base vehicle, choose a famous racing circuit, and customize their ride with performance parts like turbos and spoilers to simulate estimated track times.<br><br>Developed alongside a full party of engineers, we managed the entire software lifecycle from Lo-Fi Figma prototypes to a live production environment."
                     data-tech="Python & Django, HTML/CSS/JavaScript, Selenium, GitHub Actions, Render"
@@ -109,6 +117,8 @@
 
                 <div
                     class="project-card"
+                    tabindex="0"
+                    role="button"
                     data-title="CustomTkinter Calculator"
                     data-description="Undertaken as a solo grinding quest to test my current level, this calculator was built entirely from scratch in Python for study purposes.<br>I intentionally avoided external guides, relying strictly on the CustomTkinter documentation to forge the interface and construct the logic myself."
                     data-tech="Python, CustomTkinter, Regular Expressions (re)"
@@ -125,6 +135,8 @@
 
                 <div
                     class="project-card"
+                    tabindex="0"
+                    role="button"
                     data-title="GeeNine"
                     data-description="An interactive 'figital' (physical + digital) totem concept designed to facilitate the reverse logistics and eco-friendly recycling of cell phones.<br>While the project involved extensive UX research and ideation, my primary quest was focused on the hardware layer, bridging the physical and digital worlds using an Arduino microcontroller."
                     data-tech="Arduino (C/C++), RFID (MFRC522), I2C LCD, Ultrasonic Sensors, Servo Motors"
@@ -141,6 +153,8 @@
 
                 <div
                     class="project-card"
+                    tabindex="0"
+                    role="button"
                     data-title="GekkoTeca"
                     data-description="Focused on Human-Computer Interaction (HCI), GekkoTeca is a functional mobile-first prototype for literary delivery—think 'iFood for books.'<br>Instead of a static mockup, our party engineered a web-based smartphone simulator that offers a tactile, responsive mobile experience directly in the browser.<br><br>Players can explore bookstores, add items to their cart, and watch their purchased or rented loot dynamically organize into a smart 'My Library' inventory."
                     data-tech="Python & Django, HTML5/CSS3, JavaScript, SQLite3, PythonAnywhere"
@@ -155,14 +169,41 @@
                     />
                 </div>
 
-                <div>
-                    <h2>Upcoming Projects</h2>
-                    <p>More exciting stuff is coming soon!</p>
+                <div
+                    class="project-card"
+                    tabindex="0"
+                    role="button"
+                    data-title="Level 20 Developer Portfolio"
+                    data-description="A fully responsive, accessible, and interactive personal portfolio built entirely from scratch without the use of bulky frameworks.<br>This project underwent extensive refactoring to ensure CSS DRY principles (utilizing root variables for global theming), robust JavaScript DOM manipulation (eliminating Cross-Site Scripting vulnerabilities by parsing text nodes), and advanced A11y standards."
+                    data-tech="HTML5, CSS3, JavaScript, CSS Grid & Flexbox"
+                    data-key="This portfolio served as a masterclass in frontend polish and web accessibility. I leveled up my skills in creating custom interactive components (like a mathematical draggable scrollbar), building robust keyboard focus traps for screen reader users, and maintaining a clean, variable-driven CSS architecture."
+                    data-link="https://github.com/carraly/portfolio"
+                >
+                    <h2>Personal Portfolio</h2>
+                    <img
+                        src="imgs/penguin.png"
+                        alt="Portfolio Penguin Avatar"
+                        class="card-img"
+                        style="max-width: 150px"
+                    />
                 </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem">
+                <h2>Upcoming Projects</h2>
+                <p class="section-subtitle">
+                    More exciting stuff is coming soon!
+                </p>
             </div>
             <div id="project-modal" class="modal">
                 <div class="modal-content">
-                    <span class="close-btn">&times;</span>
+                    <span
+                        class="close-btn"
+                        tabindex="0"
+                        role="button"
+                        aria-label="Close modal"
+                        >&times;</span
+                    >
 
                     <div class="custom-scrollbar">
                         <div class="custom-thumb"></div>
