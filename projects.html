@@ -188,6 +188,24 @@
                         style="max-width: 150px"
                     />
                 </div>
+
+                <div
+                    class="project-card"
+                    tabindex="0"
+                    role="button"
+                    data-title="processflow"
+                    data-description="Developed as a solo quest for the Software Infrastructure course, processflow is a shell-style command interpreter built entirely from scratch in C.<br>Users can register named tasks, a program plus its arguments, and then launch them sequentially, in parallel, or chained together through pipes, while redirecting standard input and output, switching the working directory, or detaching jobs into the background.<br><br>Instead of leaning on shortcuts like system() and popen(), every process is spawned and wired by hand using fork, execvp, waitpid, dup2, and pipe."
+                    data-tech="C, POSIX Process APIs, GCC & Makefile"
+                    data-key="This solo campaign solidified my understanding of how an Operating System really orchestrates its processes. I engineered a struct Comando linked list to track every registered task, allocated N-1 pipes for chained execution and carefully closed inherited file descriptors after each dup2 to dodge the most common deadlocks. The same parser had to drive both an interactive prompt and a workflow file, which made me learn a lot about program reliability and the need for byte-exact output."
+                    data-link="https://github.com/carraly/Orquestrador-de-Processos"
+                >
+                    <h2>processflow</h2>
+                    <img
+                        src="imgs/processflow-thumbnail.png"
+                        alt="processflow Image"
+                        class="card-img"
+                    />
+                </div>
             </div>
 
             <div style="text-align: center; margin-top: 3rem">
