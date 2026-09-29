@@ -194,7 +194,7 @@
                     tabindex="0"
                     role="button"
                     data-title="processflow"
-                    data-description="Developed as a solo quest for the Software Infrastructure course, processflow is a shell-style command interpreter built entirely from scratch in C.<br>Users can register named tasks, a program plus its arguments, and then launch them sequentially, in parallel, or chained together through pipes, while redirecting standard input and output, switching the working directory, or detaching jobs into the background.<br><br>Instead of leaning on shortcuts like system() and popen(), every process is spawned and wired by hand using fork, execvp, waitpid, dup2, and pipe."
+                    data-description="Developed as the first solo quest for the Software Infrastructure course, processflow is a shell-style command interpreter built entirely from scratch in C.<br>Users can register named tasks, a program plus its arguments, and then launch them sequentially, in parallel, or chained together through pipes, while redirecting standard input and output, switching the working directory, or detaching jobs into the background.<br><br>Instead of leaning on shortcuts like system() and popen(), every process is spawned and wired by hand using fork, execvp, waitpid, dup2, and pipe."
                     data-tech="C, POSIX Process APIs, GCC & Makefile"
                     data-key="This solo campaign solidified my understanding of how an Operating System really orchestrates its processes. I engineered a struct Comando linked list to track every registered task, allocated N-1 pipes for chained execution and carefully closed inherited file descriptors after each dup2 to dodge the most common deadlocks. The same parser had to drive both an interactive prompt and a workflow file, which made me learn a lot about program reliability and the need for byte-exact output."
                     data-link="https://github.com/carraly/Orquestrador-de-Processos"
@@ -212,7 +212,7 @@
                     tabindex="0"
                     role="button"
                     data-title="Mandelbrot-Threads"
-                    data-description="Developed as a solo quest for the Software Infrastructure course, Mandelbrot-Threads generates the Mandelbrot set in C using four independent implementations: Serial, OpenMP, Pthreads with contiguous row blocks and Pthreads with a cyclic split.<br>Each version renders the fractal to its own plain-text PGM file and logs its wall-clock time, so the four parallelization strategies can be benchmarked side by side and verified to produce identical images.<br><br>Every run is driven from the command line, and all four arguments are validated with strtol before a single pixel is computed."
+                    data-description="Developed as the second solo quest for the Software Infrastructure course, Mandelbrot-Threads generates the Mandelbrot set in C using four independent implementations: Serial, OpenMP, Pthreads with contiguous row blocks and Pthreads with a cyclic split.<br>Each version renders the fractal to its own plain-text PGM file and logs its wall-clock time, so the four parallelization strategies can be benchmarked side by side and verified to produce identical images.<br><br>Every run is driven from the command line, and all four arguments are validated with strtol before a single pixel is computed."
                     data-tech="C, POSIX Threads, OpenMP, GCC & Makefile"
                     data-key="This solo campaign was a four-way lesson in parallel decomposition. I balanced the OpenMP version with schedule(dynamic) for uneven per-row cost, sliced the image into contiguous blocks in one Pthreads version, and handed out rows cyclically in the other to avoid the straggler thread that blocks a join. Making all four paths write byte-identical output was the real test, I had to isolate the timing region with clock_gettime(CLOCK_MONOTONIC) and pre-format per-thread output buffers so the I/O never leaked into the measured window."
                     data-link="https://github.com/carraly/Mandelbrot-Threads"
@@ -221,6 +221,24 @@
                     <img
                         src="imgs/mandelbrot-thumbnail.png"
                         alt="Mandelbrot-Threads Image"
+                        class="card-img"
+                    />
+                </div>
+
+                <div
+                    class="project-card"
+                    tabindex="0"
+                    role="button"
+                    data-title="Escalonamento de CPU"
+                    data-description="Developed as the third solo quest for the Software Infrastructure course, Escalonamento de CPU simulates two preemptive real-time schedulers against the same set of periodic tasks: Rate-Monotonic, which assigns static priority by shortest period, and Earliest-Deadline-First, which re-sorts by nearest absolute deadline on every arrival.<br>Feeding both the same workload makes the difference visible unit by unit, since each run writes an execution trace alongside the tasks it lost, completed, or had to kill.<br><br>The task set comes from a plain text file, and every value is validated before the simulation starts, including the feasibility rule that a task's execution time can never exceed its deadline."
+                    data-tech="C, Linked Lists, GCC & Makefile"
+                    data-key="This solo campaign was a deep dive into real-time scheduling theory translated into actual data structures. I modeled both policies over the same sorted linked list, static by period in one and dynamically re-sorted by absolute deadline in the other, and watched EDF pull tasks forward that Rate-Monotonic left waiting. The hardest part was not the ordering but the bookkeeping, tracking lost, completed, and killed tasks per index while freeing nodes mid-sweep, and breaking EDF deadline ties by original position to keep runs reproducible."
+                    data-link="https://github.com/carraly/Escalonamento-de-CPU"
+                >
+                    <h2>Escalonamento de CPU</h2>
+                    <img
+                        src="imgs/escalonamento-thumbnail.png"
+                        alt="Escalonamento de CPU Image"
                         class="card-img"
                     />
                 </div>
