@@ -206,6 +206,24 @@
                         class="card-img"
                     />
                 </div>
+
+                <div
+                    class="project-card"
+                    tabindex="0"
+                    role="button"
+                    data-title="Mandelbrot-Threads"
+                    data-description="Developed as a solo quest for the Software Infrastructure course, Mandelbrot-Threads generates the Mandelbrot set in C using four independent implementations: Serial, OpenMP, Pthreads with contiguous row blocks and Pthreads with a cyclic split.<br>Each version renders the fractal to its own plain-text PGM file and logs its wall-clock time, so the four parallelization strategies can be benchmarked side by side and verified to produce identical images.<br><br>Every run is driven from the command line, and all four arguments are validated with strtol before a single pixel is computed."
+                    data-tech="C, POSIX Threads, OpenMP, GCC & Makefile"
+                    data-key="This solo campaign was a four-way lesson in parallel decomposition. I balanced the OpenMP version with schedule(dynamic) for uneven per-row cost, sliced the image into contiguous blocks in one Pthreads version, and handed out rows cyclically in the other to avoid the straggler thread that blocks a join. Making all four paths write byte-identical output was the real test, I had to isolate the timing region with clock_gettime(CLOCK_MONOTONIC) and pre-format per-thread output buffers so the I/O never leaked into the measured window."
+                    data-link="https://github.com/carraly/Mandelbrot-Threads"
+                >
+                    <h2>Mandelbrot-Threads</h2>
+                    <img
+                        src="imgs/mandelbrot-thumbnail.png"
+                        alt="Mandelbrot-Threads Image"
+                        class="card-img"
+                    />
+                </div>
             </div>
 
             <div style="text-align: center; margin-top: 3rem">
